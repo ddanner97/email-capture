@@ -18,6 +18,11 @@ function NavButtons({
         >
             Navigate to Landing Page
         </button>
+        <button 
+            className='my-4 w-60 px-2 py-4 border-2 border-black rounded'
+        >
+            Pre-Save Album
+        </button>
     </div>
   )
 }

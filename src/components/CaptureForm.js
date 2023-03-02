@@ -1,46 +1,31 @@
 import React, { useState } from 'react';
 import { TextField, Button } from '@mui/material';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
+import { createBin } from '../utils';
 
-function CaptureForm({ cancelForm }) {
+function CaptureForm({ cancelForm, redirectForm, viewLoading, theme }) {
 
-    const [email, setEmail] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(`Email: ${email}, First Name: ${firstName}, Last Name: ${lastName}`);
-    };
 
-    const theme = createTheme({
-        palette: {
-            primary: {
-                main: '#000000',
-            },
-            secondary: {
-                main: '#FFFFFF',
-            },
-            text: {
-                primary: '#000000',
-                secondary: '#666666',
-            },
-        },
-      });
+        const data = { 
+            fullName: `${firstName} ${lastName}`,
+            email: email 
+        }
+
+        console.log(data);
+        viewLoading();
+        createBin(data).then(redirectForm)
+    };
 
     return (
         <div className='capture-form h-screen z-40 flex items-center justify-center'>
             <form onSubmit={handleSubmit} className='flex flex-col gap-2'>
                 <ThemeProvider theme={theme}>
-                    <TextField
-                        label="Email"
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        fullWidth
-                        margin="normal"
-                        color="primary"
-                    />
                     <TextField
                         label="First Name"
                         value={firstName}
@@ -53,6 +38,15 @@ function CaptureForm({ cancelForm }) {
                         label="Last Name"
                         value={lastName}
                         onChange={(e) => setLastName(e.target.value)}
+                        fullWidth
+                        margin="normal"
+                        color="primary"
+                    />
+                    <TextField
+                        label="Email"
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         fullWidth
                         margin="normal"
                         color="primary"
