@@ -21,7 +21,7 @@ function NavButtons({
         <button 
             className='my-4 w-60 px-2 py-4 border-2 border-black rounded'
         >
-            Pre-Save Album
+            <a href='https://distrokid.com/hyperfollow/asweleftit/call-it-what-you-want' target='_blank'>Pre-Save Form</a>
         </button>
     </div>
   )
