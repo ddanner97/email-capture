@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { ThemeProvider } from '@mui/material/styles';
 import { Button } from '@mui/material';
 import Brandon from '../assets/brandon.jpg';
@@ -9,13 +9,28 @@ import Darrel from '../assets/darrell.jpeg';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
 function LandingPage({ cancelLandingPage, theme }) {
+
+  // Preload images in the background
+  const imageUrls = [
+    Brandon,
+    Warner, 
+    Darrel
+  ];
+
+  useEffect(() => {
+    imageUrls.forEach(url => {
+      const img = new Image();
+      img.src = url;
+    });
+  }, []);
+
   return (
     <div className='nav-buttons z-40 relative' style={{ backgroundColor: 'black' }}>
       <h1 className='text-white text-center mt-4 p-4 font-bold underline'>Featured Artists</h1>
 
       <div className='artist-container px-2 py-2 flex flex-col justify-center'>
         <div className='artist-content-container my-2 flex flex-col items-center'>
-          <img className='w-3/4' src={Brandon} />
+          <img className='w-3/4' src={imageUrls[0]} />
           <div className='artist-info text-center'>
             <h2 className='text-white'>Lee Samson</h2>
             <div className='artist-links mt-2 flex gap-8'>
@@ -33,7 +48,7 @@ function LandingPage({ cancelLandingPage, theme }) {
         </div>
 
         <div className='artist-content-container my-2 flex flex-col items-center'>
-          <img className='w-3/4' src={Warner} />
+          <img className='w-3/4' src={imageUrls[1]} />
           <div className='artist-info text-center'>
             <h2 className='text-white'>Rarie</h2>
             <div className='artist-links mt-2 flex gap-8'>
@@ -51,7 +66,7 @@ function LandingPage({ cancelLandingPage, theme }) {
         </div>
 
         <div className='artist-content-container my-2 flex flex-col items-center'>
-          <img className='w-3/4' src={Darrel} />
+          <img className='w-3/4' src={imageUrls[2]} />
           <div className='artist-info text-center'>
             <h2 className='text-white mx-auto'>Darrell Chism</h2>
             <div className='artist-links mt-2 flex gap-8'>
