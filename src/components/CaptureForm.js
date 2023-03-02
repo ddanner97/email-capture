@@ -23,8 +23,8 @@ function CaptureForm({ cancelForm, redirectForm, viewLoading, theme }) {
     };
 
     return (
-        <div className='capture-form h-screen flex items-center justify-center'>
-            <form onSubmit={handleSubmit} className='flex flex-col gap-2'>
+        <div className='capture-form h-screen p-4 flex items-center justify-center'>
+            <form onSubmit={handleSubmit}>
                 <ThemeProvider theme={theme}>
                     <TextField
                         label="First Name"
@@ -51,12 +51,14 @@ function CaptureForm({ cancelForm, redirectForm, viewLoading, theme }) {
                         margin="normal"
                         color="primary"
                     />
-                    <Button variant="contained" color="primary" type="submit">
-                        Submit
-                    </Button>
-                    <Button variant="contained" color="secondary" style={{ color: 'black' }} onClick={cancelForm}>
-                        Back
-                    </Button>
+                    <div className='flex flex-col'>
+                        <Button variant="contained" color="primary" type="submit">
+                            Submit
+                        </Button>
+                        <Button variant="contained" color="secondary" style={{ color: 'black' }} onClick={cancelForm}>
+                            Back
+                        </Button>
+                    </div>
                 </ThemeProvider>
             </form>
         </div>

@@ -74,7 +74,7 @@ function App() {
   }, []);
 
   return (
-    <div className="email-capture-app min-h-screen">
+    <div className="email-capture-app min-h-screen min-w-full">
       <div className='main-container grid row-auto my-2'>
 
         {/* Loading Icon */}
