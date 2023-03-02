@@ -12,6 +12,18 @@ function CaptureForm({ cancelForm, redirectForm, viewLoading, theme }) {
     const handleSubmit = (event) => {
         event.preventDefault();
 
+        if (firstName === ''){
+            return alert('First Name Cannot Be Blank');
+        }
+
+        if (lastName === ''){
+            return alert('Last Name Cannot Be Blank');
+        }
+
+        if (email === ''){
+            return alert('Email Cannot Be Blank')
+        }
+
         const data = { 
             fullName: `${firstName} ${lastName}`,
             email: email 
