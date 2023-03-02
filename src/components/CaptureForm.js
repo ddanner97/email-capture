@@ -23,7 +23,7 @@ function CaptureForm({ cancelForm, redirectForm, viewLoading, theme }) {
     };
 
     return (
-        <div className='capture-form h-screen z-40 flex items-center justify-center'>
+        <div className='capture-form h-screen flex items-center justify-center'>
             <form onSubmit={handleSubmit} className='flex flex-col gap-2'>
                 <ThemeProvider theme={theme}>
                     <TextField

@@ -4,7 +4,7 @@ import { CircularProgress } from '@mui/material';
 
 function Loading({ theme }) {
   return (
-    <div className='capture-form h-screen z-40 flex items-center justify-center'>
+    <div className='capture-form h-screen flex items-center justify-center'>
         <ThemeProvider theme={theme}>
             <CircularProgress 
                 color="primary"

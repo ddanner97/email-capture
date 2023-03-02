@@ -111,6 +111,7 @@ function App() {
         {viewLandingPage && 
           <LandingPage
             cancelLandingPage={cancelLandingPage}
+            theme={theme}
           />
         }
 
